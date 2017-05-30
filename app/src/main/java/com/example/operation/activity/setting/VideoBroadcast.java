@@ -1,4 +1,4 @@
-package com.example.operation;
+package com.example.operation.activity.setting;
 
 import android.Manifest;
 import android.content.Intent;
@@ -15,6 +15,9 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Toast;
 import android.widget.VideoView;
+
+import com.example.operation.R;
+
 import java.io.File;
 /*
 **实现预览功能视频的播放，视频不具有暂停功能，播放完毕返回上个界面

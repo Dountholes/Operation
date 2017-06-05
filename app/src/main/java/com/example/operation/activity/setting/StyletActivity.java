@@ -1,18 +1,16 @@
 package com.example.operation.activity.setting;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.VideoView;
 
 import com.example.operation.R;
 /*
 **定时设置界面
  */
-public class Style extends AppCompatActivity implements View.OnClickListener {
+public class StyletActivity extends AppCompatActivity implements View.OnClickListener {
     private Button broadcast;//预览按钮
     private Intent intent;
     private String filepath = null;
@@ -24,7 +22,7 @@ public class Style extends AppCompatActivity implements View.OnClickListener {
         /*
         **播放视频部分
          */
-        intent = new Intent(Style.this, VideoBroadcast.class);//启动预览活动
+        intent = new Intent(StyletActivity.this, VideoBroadcastActivity.class);//启动预览活动
         filepath = "movie.mp4";
         intent.putExtra("filepath", filepath);//向预览活动传送文件路径
         broadcast = (Button) findViewById(R.id.type1);

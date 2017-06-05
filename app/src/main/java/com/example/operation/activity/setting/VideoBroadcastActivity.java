@@ -22,7 +22,7 @@ import java.io.File;
 /*
 **实现预览功能视频的播放，视频不具有暂停功能，播放完毕返回上个界面
  */
-public class VideoBroadcast extends AppCompatActivity{
+public class VideoBroadcastActivity extends AppCompatActivity{
     private VideoView videoView;
     private String filepath;
     private Intent intent;
@@ -41,7 +41,7 @@ public class VideoBroadcast extends AppCompatActivity{
             actionBar.hide();
         }
         hideBottomUIMenu();//隐藏华为这样的手机自带的虚拟按钮
-        VideoBroadcast videoBroadcast=new VideoBroadcast();
+        VideoBroadcastActivity videoBroadcastActivity =new VideoBroadcastActivity();
         DisplayMetrics metrics=new DisplayMetrics();
         intent=getIntent();
         filepath=intent.getStringExtra("filepath");//从外部传入filepath，可以播放不同视频
@@ -57,8 +57,8 @@ public class VideoBroadcast extends AppCompatActivity{
                 startActivity(intent);
             }//播放完毕时自动返回上一个活动，videoView简直强大
         });
-        if (ContextCompat.checkSelfPermission(VideoBroadcast.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(VideoBroadcast.this, new String[]
+        if (ContextCompat.checkSelfPermission(VideoBroadcastActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(VideoBroadcastActivity.this, new String[]
                     {
                             Manifest.permission.WRITE_EXTERNAL_STORAGE
                     }, 1);

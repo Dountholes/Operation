@@ -1,5 +1,319 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"></LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_weight="2.47"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="114dp"
+            android:layout_weight="0.53"
+            android:weightSum="1">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:src="@android:drawable/ic_menu_help"
+                android:id="@+id/ask_button"
+                android:layout_gravity="center|bottom"
+                android:layout_weight="0.03" />
+
+            <TextView
+                android:text="当前歌曲:"
+                android:layout_width="198dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView4"
+                android:textSize="50dp"
+                android:gravity="center"
+                android:layout_gravity="bottom"
+                android:layout_weight="0.35" />
+
+            <TextView
+                android:text="________________"
+                android:layout_width="198dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/now_song_name"
+                android:textSize="50dp"
+                android:gravity="center"
+                android:layout_gravity="bottom"
+                android:layout_weight="0.54" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="438dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.88"
+                android:layout_gravity="center"
+                android:weightSum="1">
+
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="375dp"
+
+                    android:weightSum="1">
+                    <ImageButton
+                        android:layout_width="259dp"
+                        android:layout_height="272dp"
+                        android:src="@drawable/xiuxian_up"
+                        android:scaleType="fitXY"
+                        android:layout_gravity="center|center"
+                        android:id="@+id/mode_setting_button" />
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content" >
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:layout_weight="1"
+                            android:textSize="30dp"
+                            android:text="启动"
+                            android:id="@+id/setup"
+                            />
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:layout_weight="1"
+                            android:textSize="30dp"
+                            android:text="停止"
+                            android:id="@+id/over"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1.88">
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textSize="30dp"
+                        android:layout_weight="1"
+                        android:text="（当前模式）"
+                        android:id="@+id/now_mode_name"
+                        />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textSize="30dp"
+                        android:layout_weight="1"
+                        android:text="属性设置" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textSize="30dp"
+                        android:layout_weight="1"
+                        android:text="@string/intensity_show"
+                        android:id="@+id/intensity_show"/>
+
+                    <SeekBar
+                        android:id="@+id/intensity_control"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:max="99"
+                        android:progress="50"
+                        android:layout_weight="5"
+                        android:thumb="@drawable/thumb_bar" />
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textSize="30dp"
+                        android:layout_weight="1"
+                        android:text="@string/frequency_show"
+                        android:id="@+id/frequency_show"/>
+
+                    <SeekBar
+                        android:id="@+id/frequency_control"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:max="99"
+                        android:progress="50"
+                        android:layout_weight="5"
+                        android:thumb="@drawable/thumb_bar" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textSize="30dp"
+                        android:layout_weight="1"
+                        android:text="@string/volume_show"
+                        android:id="@+id/volume_show"/>
+
+                    <SeekBar
+                        android:id="@+id/volume_control"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:max="99"
+                        android:progress="50"
+                        android:layout_weight="5"
+                        android:thumb="@drawable/thumb_bar" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <Button
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:textSize="30dp"
+                        android:text="自定义模式"
+                        android:id="@+id/DIY_mode"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <Button
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:textSize="30dp"
+                        android:text="确认选择"
+                        android:id="@+id/confirm"
+                        />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:textSize="30dp"
+                        android:text="定时模式" />
+
+                    <Switch
+                        android:id="@+id/timing_switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:thumb="@drawable/thumb_bar" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"></LinearLayout>
+
 </LinearLayout>
+
+    <!--&lt;!&ndash;-->
+    <!--max=100,代表它的取值范围是0-100,共101个值;-->
+    <!--progress=10,代表默认值是10-->
+    <!--&ndash;&gt;-->
+<!--<TextView-->
+<!--android:id="@+id/tv_self"-->
+<!--android:layout_width="wrap_content"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:text="@string/text_self" />-->
+
+    <!--&lt;!&ndash;-->
+    <!--max=100,代表它的取值范围是0-100,共101个值;-->
+    <!--progress=20,代表默认值是20-->
+    <!--progressDrawable,表示SeekBar的背景图片-->
+    <!--thumbe,表示SeekBar的滑块图片-->
+    <!--&ndash;&gt;-->
+
+
+<!--<Button-->
+<!--android:text="Button"-->
+<!--android:layout_width="wrap_content"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:id="@+id/button4"-->
+<!--android:layout_weight="1" />-->
+
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:orientation="vertical" >-->
+

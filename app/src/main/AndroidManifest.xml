@@ -5,14 +5,15 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.setting.MainActivity">
+        <activity
+            android:name=".activity.setting.MainActivity"
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,12 +23,23 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.setting.VideoBroadcast" />
+        <activity android:name=".activity.setting.VideoBroadcastActivity" />
         <activity android:name=".activity.login.GuideActivity" />
-        <activity android:name=".activity.setting.DIY" />
-        <activity android:name=".activity.setting.Song" />
-        <activity android:name=".activity.setting.Style" />
-        <activity android:name=".activity.setting.Timing"></activity>
+        <activity android:name=".activity.setting.DIYtActivity" />
+        <activity android:name=".activity.setting.SongtActivity" />
+        <activity android:name=".activity.setting.StyletActivity" />
+        <activity
+            android:name=".activity.setting.Timing.TimeSettingActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="选取定时时间"
+            android:theme="@android:style/Theme.Dialog" />
+        <service android:name=".activity.setting.Timing.RegisterCodeTimerService" />
+        <activity
+            android:name=".activity.setting.Timing.ModeSettingActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="选取定时模式"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity android:name=".activity.setting.Timing.TimerActivity" ></activity>
     </application>
 
 </manifest>

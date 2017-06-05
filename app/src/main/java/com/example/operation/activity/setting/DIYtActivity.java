@@ -5,13 +5,13 @@ import android.os.Bundle;
 
 import com.example.operation.R;
 /*
-**定时界面
+**首页界面活动
  */
-public class Timing extends AppCompatActivity {
+public class DIYtActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_timing);
+        setContentView(R.layout.activity_diy);
     }
 }

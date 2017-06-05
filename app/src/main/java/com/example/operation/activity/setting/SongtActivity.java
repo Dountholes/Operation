@@ -7,7 +7,7 @@ import com.example.operation.R;
 /*
 **歌曲设置界面
  */
-public class Song extends AppCompatActivity {
+public class SongtActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

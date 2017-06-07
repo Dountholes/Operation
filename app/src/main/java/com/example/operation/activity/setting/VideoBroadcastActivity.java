@@ -26,8 +26,6 @@ public class VideoBroadcastActivity extends AppCompatActivity{
     private VideoView videoView;
     private String filepath;
     private Intent intent;
-    private int screen_width;
-    private int screen_height;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,8 +39,7 @@ public class VideoBroadcastActivity extends AppCompatActivity{
             actionBar.hide();
         }
         hideBottomUIMenu();//隐藏华为这样的手机自带的虚拟按钮
-        VideoBroadcastActivity videoBroadcastActivity =new VideoBroadcastActivity();
-        DisplayMetrics metrics=new DisplayMetrics();
+
         intent=getIntent();
         filepath=intent.getStringExtra("filepath");//从外部传入filepath，可以播放不同视频
         videoView = (VideoView) findViewById(R.id.video_view);
@@ -52,10 +49,9 @@ public class VideoBroadcastActivity extends AppCompatActivity{
         videoView.setOnCompletionListener(new MediaPlayer.
                 OnCompletionListener() {
             @Override
-            public void onCompletion(MediaPlayer mp) {
-                Intent intent=new Intent("com.example.operation.START_LASTACTIVITY");
-                startActivity(intent);
-            }//播放完毕时自动返回上一个活动，videoView简直强大
+            public void onCompletion(MediaPlayer mp) {     
+                finish();        
+            }
         });
         if (ContextCompat.checkSelfPermission(VideoBroadcastActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(VideoBroadcastActivity.this, new String[]
@@ -105,6 +101,9 @@ public class VideoBroadcastActivity extends AppCompatActivity{
     if(videoView!=null)
     videoView.start();//用户跳到别的界面时防止黑屏，同时因为演示视频很短，所以直接重新开始播放
 }
+/*
+**隐藏虚拟按钮和状态栏的封装
+ */
 protected void hideBottomUIMenu(){
         if (Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) { // lower api
             View v = this.getWindow().getDecorView();

@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.operation.activity.setting.SongtActivity">
-
-</android.support.constraint.ConstraintLayout>
+    android:orientation="vertical">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/song_toolbar"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+    <com.example.operation.activity.setting.SongListView
+        android:id="@+id/list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="#C8C8C8"
+        android:dividerHeight="1dip"
+        android:listSelector="@android:color/transparent" />
+    <ImageView
+        android:id="@+id/song_null"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/test"/>
+</LinearLayout>

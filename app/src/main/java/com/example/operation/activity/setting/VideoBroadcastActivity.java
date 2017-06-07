@@ -22,7 +22,7 @@ import java.io.File;
 /*
 **实现预览功能视频的播放，视频不具有暂停功能，播放完毕返回上个界面
  */
-public class VideoBroadcast extends AppCompatActivity{
+public class VideoBroadcastActivity extends AppCompatActivity{
     private VideoView videoView;
     private String filepath;
     private Intent intent;
@@ -41,7 +41,7 @@ public class VideoBroadcast extends AppCompatActivity{
             actionBar.hide();
         }
         hideBottomUIMenu();//隐藏华为这样的手机自带的虚拟按钮
-        VideoBroadcast videoBroadcast=new VideoBroadcast();
+        VideoBroadcastActivity videoBroadcast=new VideoBroadcastActivity();
         DisplayMetrics metrics=new DisplayMetrics();
         intent=getIntent();
         filepath=intent.getStringExtra("filepath");//从外部传入filepath，可以播放不同视频
@@ -53,12 +53,13 @@ public class VideoBroadcast extends AppCompatActivity{
                 OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
-                Intent intent=new Intent("com.example.operation.START_LASTACTIVITY");
-                startActivity(intent);
+                finish();
+                //Intent intent=new Intent("com.example.operation.START_LASTACTIVITY");
+                //startActivity(intent);这样写会导致有时候返回出现错误
             }//播放完毕时自动返回上一个活动，videoView简直强大
         });
-        if (ContextCompat.checkSelfPermission(VideoBroadcast.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(VideoBroadcast.this, new String[]
+        if (ContextCompat.checkSelfPermission(VideoBroadcastActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(VideoBroadcastActivity.this, new String[]
                     {
                             Manifest.permission.WRITE_EXTERNAL_STORAGE
                     }, 1);
@@ -105,6 +106,9 @@ public class VideoBroadcast extends AppCompatActivity{
     if(videoView!=null)
     videoView.start();//用户跳到别的界面时防止黑屏，同时因为演示视频很短，所以直接重新开始播放
 }
+/*
+**隐藏虚拟按钮和状态栏的封装
+ */
 protected void hideBottomUIMenu(){
         if (Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) { // lower api
             View v = this.getWindow().getDecorView();

@@ -5,13 +5,13 @@ import android.os.Bundle;
 
 import com.example.operation.R;
 /*
-**歌曲设置界面
+**定时界面
  */
-public class Song extends AppCompatActivity {
+public class TimingActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_song);
+        setContentView(R.layout.activity_timing);
     }
 }
